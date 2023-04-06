@@ -1,10 +1,11 @@
 import { simpleGit } from 'simple-git'
-import { cancel, intro, note, text, spinner } from '@clack/prompts'
+import { cancel, intro, note, outro, spinner, text } from '@clack/prompts'
 import { readJSON } from 'fs-extra'
 import { Octokit } from '@octokit/core'
 import type { OctokitResponse } from '@octokit/types'
 
 const GIT_TOKEN_KEY = 'pushGithub.githubToken'
+const DEFAULT_REPOSITORY_NAME = 'push-github-project'
 const git = simpleGit()
 const spinnerInstance = spinner()
 
@@ -35,14 +36,14 @@ async function resolveProjectName() {
   })
 
   if (json) {
-    const packageJsonProjectName = (json.name && json.name !== '') ? json.name : 'push-github-project'
+    const packageJsonProjectName = (json.name && json.name !== '') ? json.name : DEFAULT_REPOSITORY_NAME
     const projectName = await text({
       message: 'Input your github repository name, if you use initial value, just press enter',
       initialValue: packageJsonProjectName,
     })
     return projectName
   }
-  return 'push-github-project'
+  return DEFAULT_REPOSITORY_NAME
 }
 
 async function createGithubRepository(name: string, auth: string) {
@@ -74,6 +75,8 @@ async function pushProject(url: string) {
     .catch((err) => {
       note(`Git push fail: ${err.message}`, 'error')
     })
+
+  outro(`Finish! watch your project at: ${url}`)
 }
 
 async function main() {
@@ -85,8 +88,6 @@ async function main() {
     const url = await createGithubRepository(name as string, token)
     pushProject(url)
   }
-
-  // outro('Finish')
 }
 
 main()

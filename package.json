@@ -52,6 +52,8 @@
     "@antfu/eslint-config": "^0.37.0",
     "@antfu/ni": "^0.20.0",
     "@antfu/utils": "^0.7.2",
+    "@octokit/types": "^9.0.0",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.15.5",
     "bumpp": "^9.0.0",
     "eslint": "^8.36.0",
@@ -72,6 +74,8 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.6.3",
+    "@octokit/core": "^4.2.0",
+    "fs-extra": "^11.1.1",
     "simple-git": "^3.17.0"
   }
 }

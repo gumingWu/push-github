@@ -1,17 +1,17 @@
 {
-  "name": "pkg-name",
+  "name": "push-github",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.30.0",
   "description": "",
   "author": "gumingWu",
   "license": "MIT",
-  "homepage": "https://github.com/gumingWu/pkg-name#readme",
+  "homepage": "https://github.com/gumingWu/push-github#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gumingWu/pkg-name.git"
+    "url": "git+https://github.com/gumingWu/push-github.git"
   },
-  "bugs": "https://github.com/gumingWu/pkg-name/issues",
+  "bugs": "https://github.com/gumingWu/push-github/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -31,6 +31,10 @@
         "./dist/index.d.ts"
       ]
     }
+  },
+  "bin": {
+    "pg": "index.js",
+    "push-github": "index.js"
   },
   "files": [
     "dist"
@@ -65,5 +69,9 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.6.3",
+    "simple-git": "^3.17.0"
   }
 }

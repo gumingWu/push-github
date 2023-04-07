@@ -18,7 +18,7 @@ pnpm add -g push-github
 
 First of all, you must prepare a github token that has the pushing project authentication.
 
-**More creating token steps in [this article](https://juejin.cn/post/7213576339328335929#heading-6) in Chinese**
+**More creating token steps in <a href="https://juejin.cn/post/7213576339328335929#heading-6" target="_blank">this article</a>  in Chinese**
 
 And then, open the **terminal** and execute the command: `push-github`, or `pg`
 

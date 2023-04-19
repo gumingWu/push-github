@@ -1,6 +1,6 @@
 import { simpleGit } from 'simple-git'
 import { cancel, intro, note, outro, spinner, text } from '@clack/prompts'
-import { readJSON } from 'fs-extra'
+import fs from 'fs-extra'
 import { Octokit } from '@octokit/core'
 import type { OctokitResponse } from '@octokit/types'
 
@@ -27,7 +27,7 @@ async function saveGithubToken(): Promise<string> {
 }
 
 async function resolveProjectName() {
-  const json = await readJSON('./package.json').catch((err) => {
+  const json = await fs.readJSON('./package.json').catch((err) => {
     if (err.message.includes('no such file or directory')) {
       cancel('no package.json in this folder, please check the path')
       return null

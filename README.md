@@ -27,3 +27,10 @@ If you don't save the github token, it will force you to save token firstly
 Just use `pg` and press `Enter`, the github repository will be created！
 
 ![image.png](https://s2.loli.net/2023/04/07/pDnTePZsacxH97r.png)
+
+
+## TODO
+
+- 加上超时机制
+- ctrl+c 能取消接口请求并终止流程
+- 以上两个步骤是为了解决在提交时网络缓慢的问题
